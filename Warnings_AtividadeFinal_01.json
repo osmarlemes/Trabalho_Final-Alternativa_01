@@ -1,0 +1,602 @@
+[
+    {
+        "id": "697892a211cab536",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cc118ad5b87085df",
+        "type": "mqtt in",
+        "z": "697892a211cab536",
+        "name": "Mqtt_Sensores",
+        "topic": "it012/sensores/083AF28F2368",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aa8f8fe59025a6a0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "9563995e330b3210",
+                "d97f61f99c06d22a",
+                "f396eaa358234d19",
+                "c7e9dc54d62c1d4b",
+                "976972a355744dfd",
+                "22644d48069ed312",
+                "f9d6be2d9bb05d28"
+            ]
+        ]
+    },
+    {
+        "id": "9563995e330b3210",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair acel. x",
+        "func": "var msg1 = {payload: \"x = \" + msg.payload.x + \" m/s²\"};\nvar msg2 = {payload: msg.payload.x};\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "c67a690f28972579"
+            ],
+            [
+                "2c09cd52873a6d6c"
+            ]
+        ],
+        "outputLabels": [
+            "saida msg",
+            "saida grafico"
+        ]
+    },
+    {
+        "id": "d97f61f99c06d22a",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair acel. y",
+        "func": "var msg1 = { payload: \"y = \" + msg.payload.y + \" m/s²\"};\nvar msg2 = { payload: msg.payload.y };\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "44cb6c54b9fa9457"
+            ],
+            [
+                "8014a4c3824f57f3"
+            ]
+        ]
+    },
+    {
+        "id": "f396eaa358234d19",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair acel. z",
+        "func": "var msg1 = { payload: \"z = \" + msg.payload.z + \" m/s²\"};\nvar msg2 = { payload: msg.payload.z };\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "e39af6443e5d5ce0"
+            ],
+            [
+                "7d69ae088c232acd"
+            ]
+        ]
+    },
+    {
+        "id": "c7e9dc54d62c1d4b",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair roll",
+        "func": "var msg1 = { payload: \"Roll = \" + msg.payload.roll + \" rps\"};\nvar msg2 = { payload: msg.payload.roll };\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "0ae97e30d8d838d2"
+            ],
+            [
+                "a4f15315745d2ae7"
+            ]
+        ]
+    },
+    {
+        "id": "976972a355744dfd",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair pitch",
+        "func": "var msg1 = { payload: \"Pitch = \" + msg.payload.pitch + \" rps\"};\nvar msg2 = { payload: msg.payload.pitch };\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "936f34319dce898a"
+            ],
+            [
+                "4d148ae639e61a47"
+            ]
+        ]
+    },
+    {
+        "id": "22644d48069ed312",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair yaw",
+        "func": "var msg1 = { payload: \"Yaw = \" + msg.payload.yaw + \" rps\"};\nvar msg2 = { payload: msg.payload.yaw };\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "5fe72b38d6379f39"
+            ],
+            [
+                "140f28174eba599e"
+            ]
+        ]
+    },
+    {
+        "id": "f9d6be2d9bb05d28",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair luminosidade",
+        "func": "var msg1 = { payload: \"Luminosidade = \" + msg.payload.luminosidade + \" %\"};\nvar msg2 = { payload: msg.payload.luminosidade};\nnode.send([msg1, msg2]);",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 560,
+        "wires": [
+            [
+                "f9ede6160c9b1126"
+            ],
+            [
+                "7b521df3ee8aac08"
+            ]
+        ]
+    },
+    {
+        "id": "c67a690f28972579",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "44cb6c54b9fa9457",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e39af6443e5d5ce0",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0ae97e30d8d838d2",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "936f34319dce898a",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5fe72b38d6379f39",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f9ede6160c9b1126",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "fd38ffd825585a81",
+        "type": "mqtt in",
+        "z": "697892a211cab536",
+        "name": "Mqtt_Warning",
+        "topic": "it012/warnings/083AF28F2368",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aa8f8fe59025a6a0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "e3e74b5c3499920a"
+            ]
+        ]
+    },
+    {
+        "id": "e3e74b5c3499920a",
+        "type": "function",
+        "z": "697892a211cab536",
+        "name": "Extrair Alarme",
+        "func": "return { payload: msg.payload.alarme}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "91521c6cb6ced87e"
+            ]
+        ]
+    },
+    {
+        "id": "d85b72010777a22d",
+        "type": "debug",
+        "z": "697892a211cab536",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7e3f2e73e0d10ac3",
+        "type": "mqtt out",
+        "z": "697892a211cab536",
+        "name": "Mqtt_Controle",
+        "topic": "it012/ctrl/083AF28F2368",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aa8f8fe59025a6a0",
+        "x": 700,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "2886dad64ed23fca",
+        "type": "ui_button",
+        "z": "697892a211cab536",
+        "name": "",
+        "group": "91465e2eb8eb452f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Aplicar Limites",
+        "tooltip": "",
+        "color": "200",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"MPU6050\":{\"x\":3,\"y\":4,\"z\":12,\"roll\":3,\"pitch\":2,\"yaw\":1},\"TEMT6000\":{\"luminosidade\":20}}",
+        "payloadType": "json",
+        "topic": "it012/ctrl/083AF28F2368",
+        "topicType": "msg",
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "d85b72010777a22d",
+                "7e3f2e73e0d10ac3"
+            ]
+        ]
+    },
+    {
+        "id": "91521c6cb6ced87e",
+        "type": "ui_toast",
+        "z": "697892a211cab536",
+        "position": "top right",
+        "displayTime": "10",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Warning",
+        "name": "Warnings",
+        "x": 780,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "2c09cd52873a6d6c",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Acelerômetro X",
+        "format": "{{msg.payload}} m/s²",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8014a4c3824f57f3",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Acelerômetro Y",
+        "format": "{{msg.payload}} m/s²",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7d69ae088c232acd",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Acelerômetro Z",
+        "format": "{{msg.payload}} m/s²",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a4f15315745d2ae7",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Roll",
+        "format": "{{msg.payload}} rps",
+        "layout": "row-spread",
+        "className": "",
+        "x": 770,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4d148ae639e61a47",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Pitch",
+        "format": "{{msg.payload}} rps",
+        "layout": "row-spread",
+        "className": "",
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "140f28174eba599e",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Yaw",
+        "format": "{{msg.payload}} rps",
+        "layout": "row-spread",
+        "className": "",
+        "x": 770,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "7b521df3ee8aac08",
+        "type": "ui_text",
+        "z": "697892a211cab536",
+        "group": "91465e2eb8eb452f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luminosidade",
+        "format": "{{msg.payload}} %",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "aa8f8fe59025a6a0",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "91465e2eb8eb452f",
+        "type": "ui_group",
+        "name": "Monitoramento",
+        "tab": "8d9254b502cdcfc2",
+        "order": 2,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8d9254b502cdcfc2",
+        "type": "ui_tab",
+        "name": "Sensores MPU6050 - TEMT6000",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
